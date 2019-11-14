@@ -8,16 +8,19 @@ Next steps:
     # config/environments/{development,test}.rb
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-    In production it should be your app's domain name.
+    In the production environment it should be your application's full hostname.
 
-2. Display user session and flashes. For example, in your application layout:
+2. Display user session status somewhere in the views.
 
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    The views installer can be run with `rails generate clearance:views` and
+    will install a partial in `application/header` which includes code suitable
+    for basic display of conditional sign in and sign out links. You can use
+    `<%= render "header" %>` from your layout to use that partial, and then
+    customize as appropriate for your application.
+
+3. Render the flash contents.
+
+    Make sure the flash is being rendered in your views using something like:
 
     <div id="flash">
       <% flash.each do |key, value| %>
@@ -25,8 +28,8 @@ Next steps:
       <% end %>
     </div>
 
-3. Migrate:
+4. Migrate:
 
-    rails db:migrate
+    Run `rails db:migrate` to add the clearance database changes.
 
 *******************************************************************************

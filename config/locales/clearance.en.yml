@@ -1,5 +1,9 @@
 ---
 en:
+  application:
+    header:
+      sign_in: Sign in
+      sign_out: Sign out
   clearance:
     models:
       clearance_mailer:
@@ -36,10 +40,6 @@ en:
         submit: Sign in
       user:
         create: Sign up
-  layouts:
-    application:
-      sign_in: Sign in
-      sign_out: Sign out
   passwords:
     create:
       description: You will receive an email within the next few minutes. It
